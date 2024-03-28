@@ -161,6 +161,9 @@ input.input::placeholder {
     color: transparent; /* Hace que el texto del placeholder sea transparente */
     font-size: 0.8rem; /* Define el tamaño del texto del placeholder */
 }
+.custom-link .nav-link-inner--text {
+    color: #333; /* Color oscuro */
+}
 
 /* responsivo-celulares o tablet */
 @media screen and (max-width: 1050px){
