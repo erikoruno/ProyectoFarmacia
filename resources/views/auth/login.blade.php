@@ -1,73 +1,69 @@
-@extends('layouts.app')
+@extends('layouts.form')
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+    <div class="img">
+        <img src="" alt="">
+    </div>
+    <div class="contenido-login">
+        
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+        <form role="form" action="{{ route('login') }}" method="POST">      
+            @csrf
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                            <h3>Este es el login</h3>
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
+                @if($errors->any())   
+                <div class="text-center text-muted mb-2">
+                    <h4>Se encontro un error.</h4>
                 </div>
+
+                <div class="alert alert-danger mb-4" role="alert">
+                    {{ $errors->first() }}
+                </div>
+
+                @else
+                    <div class="text-center text-muted mb-4">
+                        <small>Ingresa tús datos</small>
+                    </div>
+                @endif
+            <img src="{{asset('img/brand/logo.bmp')}}" alt="">
+            <h2>Farmacia</h2>
+            <div class="input-div email">
+                <div class="i">
+                <i class="fas fa-user"></i>
+                </div>
+            <div class="div">
+                {{-- <h5>Correo</h5> --}}
+                <input type="email"  
+                placeholder="Correo electrónico" name="email" 
+                value="{{ old('email') }}" required autocomplete="email" autofocus>
             </div>
         </div>
+        <div class="input-div pass">
+            <div class="i">
+                <i class="fas fa-lock"></i>
+            </div>
+            <div class="div">
+                {{-- <h5>Contraseña</h5> --}}
+                <input type="password" placeholder="Contraseña" 
+                name="password" required autocomplete="current-password">
+            </div>
+        </div>
+        <a href="">Creado Esoft</a>
+        <input type="submit" class="btn" value="Iniciar sesión">
+        </form>
     </div>
+    <div class="row mt-1 justify-content-center">
+        <div class="col-2.5">
+            <a href="{{ route('password.request') }}" class="text"><small>¿Olvidaste tu
+                    contraseña?</small></a>
+        </div>
+        <div class="col-3    text-right">
+            <a href="{{ route('register')}}" class="text"><small>Crear cuenta nueva</small></a>
+        </div>
+    </div>
+
 </div>
+<script src="{{asset('js/login.js')}}">
+</script>
+
 @endsection

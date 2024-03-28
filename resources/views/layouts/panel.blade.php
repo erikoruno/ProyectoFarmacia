@@ -183,7 +183,7 @@
                       <p class="mb-0 fs-3">My Task</p>
                     </a>
                     <h3>cerrar sesison</h3>
-                    <a href="/" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                    <a href="" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                     
                   </div>
                 </div>

@@ -22,12 +22,32 @@
     <body >
         <img class="" src="" alt="">
         <div class="container">
+
+           
+
             <div class="img">
                 <img src="" alt="">
             </div>
             <div class="contenido-login">
-                <form action="{{ route('loginfarm') }}" method="POST">
+                    @if($errors->any())
+                    <div class="text-center text-muted mb-2">
+                        <h4>Se encontro el siguiente error.</h4>
+                    </div>
+                         <div class="alert alert-danger mb-4" role="alert">
+                            {{ $errors->first() }}
+                        </div>
+                    @else
+                        <div class="text-center text-muted mb-4">
+                            <small>Ingresa tus credenciales</small>
+                        </div>
+                     @endif
+
+                     
+                <form role="form" action="{{ route('login') }}" method="POST">
                     @csrf
+
+                    
+
                     <img src="{{asset('img/brand/logo.bmp')}}" alt="">
                     <h2>Farmacia</h2>
                     <div class="input-div email">
@@ -36,7 +56,8 @@
                         </div>
                     <div class="div">
                         <h5>Correo</h5>
-                        <input type="email" value="{{ old('email') }}" placeholder="Ingresa tú email" name="email" class="input">
+                        <input type="email" value="{{ old('email') }}" 
+                        placeholder="Correo electrónico" name="email" class="input" required autocomplete="email" autofocus>
                     </div>
                 </div>
                 <div class="input-div pass">
@@ -45,7 +66,8 @@
                     </div>
                     <div class="div">
                         <h5>Contraseña</h5>
-                        <input type="password" placeholder="Ingresa tu contraseña" name="pass" class="input">
+                        <input type="password" placeholder="Contraseña" name="password" 
+                        class="input" required autocomplete="current-password">
                     </div>
                 </div>
                 <a href="">Creado Esoft</a>
@@ -54,11 +76,11 @@
             </div>
             <div class="row mt-1 justify-content-center">
                 <div class="col-2.5">
-                    <a href="" class="text"><small>¿Olvidaste tu
+                    <a href="{{ route('password.request')}}" class="text"><small>¿Olvidaste tu
                             contraseña?</small></a>
                 </div>
                 <div class="col-3    text-right">
-                    <a href="" class="text"><small>Crear cuenta nueva</small></a>
+                    <a href="{{ route('register')}}" class="text"><small>Crear cuenta nueva</small></a>
                 </div>
             </div>
         </div>
