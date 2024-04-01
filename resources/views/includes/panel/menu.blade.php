@@ -1,6 +1,17 @@
-
+<li class="sidebar-item">
+  <a class="sidebar-link" href="" aria-expanded="false">
+    <span>
+      <i class="ti ti-mood-happy"></i>
+    </span>
+    <span class="hide-menu">REALIZAR COMPRA</span>
+  </a>
+</li>
 
 <ul id="sidebarnav">
+
+ 
+
+
     <li class="nav-small-cap">
         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
         <span class="hide-menu">USUARIO</span>
@@ -21,7 +32,7 @@
           <span>
             <i class="ti ti-mood-happy"></i>
           </span>
-          <span class="hide-menu">Gestiòn usuario</span>
+          <span class="hide-menu">Gestión usuario</span>
         </a>
       </li>
     <li class="nav-small-cap">
@@ -43,7 +54,7 @@
       <span class="hide-menu">ALMACEN</span>
     </li>
     <li class="sidebar-item">
-      <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+      <a class="sidebar-link" href="{{ url('/productos')}}" aria-expanded="false">
         <span>
           <i class="ti ti-package"></i>
         </span>
@@ -51,7 +62,7 @@
       </a>
     </li>
     <li class="sidebar-item">
-        <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+        <a class="sidebar-link" href="{{ url('/laboratorios')}}" aria-expanded="false">
           <span>
             <i class="ti ti-thumb-up"></i>
           </span>
@@ -59,7 +70,7 @@
         </a>
       </li>
       <li class="sidebar-item">
-        <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+        <a class="sidebar-link" href="{{ url('/lotes') }}" aria-expanded="false">
           <span>
             <i class="ti ti-archive"></i>
           </span>
@@ -72,11 +83,20 @@
       </li>
 
       <li class="sidebar-item">
-        <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+        <a class="sidebar-link" href="{{ url('/proveedores')}}" >
           <span>
             <i class="ti ti-truck"></i>
           </span>
           <span class="hide-menu">Gestión proveedor</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item">
+        <a class="sidebar-link" href="{{ url('/categorias')}}" aria-expanded="false">
+          <span>
+            <i class="ti ti-server"></i>
+          </span>
+          <span class="hide-menu">Gestión categoria</span>
         </a>
       </li>
     

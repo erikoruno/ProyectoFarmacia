@@ -10,6 +10,7 @@
 </head>
 
 <body>
+  
   <!--  Body Wrapper -->
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
     data-sidebar-position="fixed" data-header-position="fixed">
@@ -21,6 +22,9 @@
           <a href="./index.html" class="text-nowrap logo-img">
             <img src="{{asset('images/logos/dark-logo.svg')}}" width="180" alt="" />
           </a>
+
+        
+  
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
           </div>
@@ -54,6 +58,7 @@
             <li class="nav-item d-block d-xl-none">
               <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
                 <i class="ti ti-menu-2"></i>
+                
               </a>
             </li>
             <li class="nav-item">
@@ -71,28 +76,14 @@
                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                   aria-expanded="false">
                   <img src="{{asset('images/profile/user-1.jpg')}}" alt="" width="35" height="35" class="rounded-circle">
+                <div class="media-body ml-2 d-none d-lg-block">
+                  <span class="mb-0 text-sm  font-weigth-bold">{{ auth()->user()->name}}</span>
+                </div>
                 </a>
                 
                  
                 
-                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
-                  <div class="message-body">
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-user fs-6"></i>
-                      <p class="mb-0 fs-3">Mi perfil</p>
-                    </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-mail fs-6"></i>
-                      <p class="mb-0 fs-3">Mi cuenta</p>
-                    </a>
-                    
-                    <a href="{{ route('logout')}}" class="btn btn-outline-primary mx-3 mt-2 d-block"
-                    onclick="event.preventDefault(); document.getElementById('formLogout').submit();">Cerrar sesión</a>
-                    <form action="{{ route('logout')}}" method="POST" style="display: none;" id="formLogout">
-                      @csrf
-                    </form>
-                  </div>
-                </div>
+                @include('includes.panel.userOptions')
               </li>
             </ul>
           </div>
@@ -104,7 +95,7 @@
         <!--  Row 1 -->
         
         <div class="py-6 px-6 text-center">
-          <p class="mb-0 fs-4">2024 <a href="https://adminmart.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">Esoft</a> Distributed by <a href="https://themewagon.com">Perú</a></p>
+          <p class="mb-0 fs-4">2024 <a href="https://adminmart.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">Esoft {{config('app.name')}}</a> Distributed by <a href="https://themewagon.com">Perú</a></p>
         </div>
       </div>
     </div>

@@ -165,6 +165,7 @@ input.input::placeholder {
     color: #333; /* Color oscuro */
 }
 
+
 /* responsivo-celulares o tablet */
 @media screen and (max-width: 1050px){
     .contenedor{
