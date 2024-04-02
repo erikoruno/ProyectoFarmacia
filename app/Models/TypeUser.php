@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class TypeUser extends Model
 {
     use HasFactory;
+
+    public function usuarios()
+    {
+        return $this->hasMany(Usuario::class, 'type_users_id'); 
+    }
 }

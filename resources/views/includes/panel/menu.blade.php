@@ -8,10 +8,6 @@
 </li>
 
 <ul id="sidebarnav">
-
- 
-
-
     <li class="nav-small-cap">
         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
         <span class="hide-menu">USUARIO</span>
@@ -19,16 +15,16 @@
 
   
     <li class="sidebar-item">
-      <a class="sidebar-link" href="./index.html" aria-expanded="false">
+      <a class="sidebar-link" href="{{ url('/usuarios')}}" aria-expanded="false">
         <span>
           <i class="ti ti-layout-dashboard"></i>
         </span>
-        <span class="hide-menu">Datos personales</span>
+        <span class="hide-menu">Editar datos personales</span>
       </a>
     </li>
 
     <li class="sidebar-item">
-        <a class="sidebar-link" href="./index.html" aria-expanded="false">
+        <a class="sidebar-link" href="#" aria-expanded="false">
           <span>
             <i class="ti ti-mood-happy"></i>
           </span>
@@ -40,7 +36,7 @@
       <span class="hide-menu">VENTAS</span>
     </li>
     <li class="sidebar-item">
-      <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+      <a class="sidebar-link" href="{{ url('/ventas')}}" aria-expanded="false">
         <span>
           <i class="ti ti-file-description"></i>
         </span>

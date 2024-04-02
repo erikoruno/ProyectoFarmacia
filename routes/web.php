@@ -54,3 +54,20 @@ Route::get('/lotes/{lote}/edit', [App\Http\Controllers\LoteController::class, 'e
 Route::post('/lotes', [App\Http\Controllers\LoteController::class, 'sendData']);
 Route::put('/lotes/{lote}', [App\Http\Controllers\LoteController::class, 'update']);
 Route::delete('/lotes/{lote}', [App\Http\Controllers\LoteController::class, 'destroy']);
+
+
+//Ruta ventas
+Route::get('/ventas', [App\Http\Controllers\VentasController::class, 'index']);
+Route::get('/ventas/create', [App\Http\Controllers\VentasController::class, 'create']);
+Route::get('/ventas/{venta}/edit', [App\Http\Controllers\VentasController::class, 'edit']);
+Route::post('/ventas', [App\Http\Controllers\VentasController::class, 'sendData']);
+Route::put('/ventas/{venta}', [App\Http\Controllers\VentasController::class, 'update']);
+Route::delete('/ventas/{venta}', [App\Http\Controllers\VentasController::class, 'destroy']);
+
+//Ruta usuario
+Route::get('/usuarios', [App\Http\Controllers\UsuarioController::class, 'index']);
+Route::get('/usuarios/create', [App\Http\Controllers\UsuarioController::class, 'create']);
+Route::get('/usuarios/{usuario}/edit', [App\Http\Controllers\UsuarioController::class, 'edit']);
+Route::post('/usuarios', [App\Http\Controllers\UsuarioController::class, 'sendData']);
+Route::put('/usuarios/{usuario}', [App\Http\Controllers\UsuarioController::class, 'update']);
+Route::delete('/usuarios/{usuario}', [App\Http\Controllers\UsuarioController::class, 'destroy']);
