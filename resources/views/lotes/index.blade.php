@@ -46,7 +46,7 @@
                 <th scope="col">Vencimiento</th>
                 <th scope="col">Proveedor</th>
                 <th scope="col">Producto</th>
-                
+                <th>Acciones</th>
                 
               </tr>
             </thead>

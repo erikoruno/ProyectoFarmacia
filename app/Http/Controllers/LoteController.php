@@ -23,7 +23,7 @@ class LoteController extends Controller
 
     public function sendData(Request $request)
     {
-        // Valida los datos del formulario
+       
         $request->validate([
         'stock' => 'required|string|max:255',
         
@@ -31,7 +31,7 @@ class LoteController extends Controller
         'productos_id' => 'required|exists:productos,id',
     ]);
 
-    // Crea un nuevo producto con los datos del formulario
+   
         $lote = new Lote();
         $lote->stock = $request->input('stock');
         $lote->vencimiento = $request->input('vencimiento');
@@ -39,7 +39,7 @@ class LoteController extends Controller
         $lote->productos_id = $request->input('productos_id');
         $lote->save();
 
-    // Redirecciona a la vista de productos con un mensaje de éxito
+    
         return redirect('/lotes')->with('success', 'Lote creado correctamente');
     }
 
@@ -68,7 +68,7 @@ class LoteController extends Controller
         $lote->productos_id = $request->input('productos_id');
         $lote->save();
 
-    // Redirecciona a la vista de productos con un mensaje de éxito
+   
         return redirect('/lotes')->with('success', 'Lote actualizado correctamente');
     }
 

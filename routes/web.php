@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 
@@ -47,6 +47,10 @@ Route::post('/productos', [App\Http\Controllers\ProductoController::class, 'send
 Route::put('/productos/{producto}', [App\Http\Controllers\ProductoController::class, 'update']);
 Route::delete('/productos/{producto}', [App\Http\Controllers\ProductoController::class, 'destroy']);
 
+
+
+
+
 //Ruta Lote
 Route::get('/lotes', [App\Http\Controllers\LoteController::class, 'index']);
 Route::get('/lotes/create', [App\Http\Controllers\LoteController::class, 'create']);
@@ -71,3 +75,31 @@ Route::get('/usuarios/{usuario}/edit', [App\Http\Controllers\UsuarioController::
 Route::post('/usuarios', [App\Http\Controllers\UsuarioController::class, 'sendData']);
 Route::put('/usuarios/{usuario}', [App\Http\Controllers\UsuarioController::class, 'update']);
 Route::delete('/usuarios/{usuario}', [App\Http\Controllers\UsuarioController::class, 'destroy']);
+
+//Ruta GestiónUsuario Administradores
+Route::get('/gestionusuarios', [App\Http\Controllers\UsuarioController::class, 'indice']);
+Route::get('/gestionusuarios/crear', [App\Http\Controllers\UsuarioController::class, 'crear']);
+Route::get('/gestionusuarios/{gestionusuario}/editar', [App\Http\Controllers\UsuarioController::class, 'editar']);
+Route::post('/gestionusuarios', [App\Http\Controllers\UsuarioController::class, 'enviarDatos']);
+Route::put('/gestionusuarios/{gestionusuario}', [App\Http\Controllers\UsuarioController::class, 'actualizar']);
+Route::delete('/gestionusuarios/{gestionusuario}', [App\Http\Controllers\UsuarioController::class, 'destroy']);
+
+//Ruta Carrito y compras
+// Route::get('/carrito', [App\Http\Controllers\UsuarioController::class, 'index']);
+// Route::post('/carrito/create', [App\Http\Controllers\UsuarioController::class, 'create']);
+// Route::delete('/carrito/{carro}', [App\Http\Controllers\UsuarioController::class, 'destroy']);
+// Route::get('/comprar', [App\Http\Controllers\UsuarioController::class, 'index']);
+// Route::post('/comprar/procesar', [App\Http\Controllers\UsuarioController::class, 'procesar']);
+
+
+//Ruta carrito 
+Route::post('/carrito/agregar/{id}', [App\Http\Controllers\CarritoController::class, 'agregarAlCarrito'])->name('carrito.agregar');
+
+Route::get('/carrito', [App\Http\Controllers\CarritoController::class, 'verCarrito'])->name('carrito.index');
+
+Route::delete('/carrito/{id}', [App\Http\Controllers\CarritoController::class, 'eliminarProducto'])->name('carrito.eliminar');
+//Route::get('/carrito', [App\Http\Controllers\CarritoController::class, 'verCarrito'])->name('carrito.ver');
+
+
+//Ruta para Catálogo de productos.
+Route::get('/catalogos', [App\Http\Controllers\CatalogoController::class, 'index']);

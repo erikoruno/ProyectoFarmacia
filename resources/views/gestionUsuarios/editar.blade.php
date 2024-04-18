@@ -11,10 +11,10 @@
         <div class="card-header border-0">
           <div class="row align-items-center">
             <div class="col">
-              <h3 class="mb-0">Nuevo cliente</h3>
+              <h3 class="mb-0">Editar usuario</h3>
             </div>
             <div class="col text-right ">
-             <a href="{{ url('/usuarios')}}" class="btn btn-sm btn-success" >
+             <a href="{{ url('/gestionusuarios')}}" class="btn btn-sm btn-success" >
                 <i class="ti ti-arrow-left"></i>
                 Regresar</a>
             </div>
@@ -34,37 +34,61 @@
                 @endforeach --}}
 
              {{-- @endif --}}
-            <form role="form" action="{{ url('/usuarios')}}" method="POST">
+            <form role="form" action="{{ url('/gestionusuarios/'.$gestionusuario->id)}}" method="POST">
                 @csrf
-
+                @method('PUT')
                 <div class="form-group">
                     <label for="name">Nombre</label>
-                    <input type="text" id="name" name="name" class="form-control" value="{{old('name')}}"  required>
+                    <input type="text" id="name" name="name" class="form-control" value="{{old('name', $gestionusuario->name)}}"  required>
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="direccion">Dirección</label>
-                    <input type="text" id="direccion" name="direccion" class="form-control" value="{{old('direccion')}}"  required>
-                </div>
+                    <input type="text" id="direccion" name="direccion" class="form-control" value="{{old('direccion', $gestionusuario->direccion)}}"  required>
+                </div> --}}
 
                 <div class="form-group">
                     <label for="email">Correo electrónico</label>
-                    <input type="email"  name="email" class="form-control" value="{{old('email')}}"  required>
+                    <input type="email"  name="email" class="form-control" value="{{old('email', $gestionusuario->email)}}"  required>
                 </div>
                 <div class="form-group">
                     <label for="edad">Edad</label>
-                    <input type="text"  name="edad" class="form-control" value="{{old('edad')}}"  required>
+                    <input type="text"  name="edad" class="form-control" value="{{old('edad', $gestionusuario->edad)}}"  required>
                 </div>
+
+                <div class="form-group">
+                    <label for="type_users_id">Tipo de usuario</label>
+                    <select name="type_users_id" class="form-control">
+                        <option value="">Seleccionar tipo de usuario</option>
+                        @foreach($tipousuarios as $tipousuario)
+                            <option value="{{ $tipousuario->id }}"{{ $gestionusuario->type_users_id == $tipousuario->id ? 'selected' : '' }}>
+                                {{ $tipousuario->nombreTipo }}
+                            </option>
+                        @endforeach
+                        </select> 
+                </div>
+
                 {{-- <div class="form-group">
+                    <label for="proveedors_id">Proveedor</label>
+                    <select name="proveedors_id" class="form-control">
+                        @foreach ($proveedores as $proveedor)
+                        <option value="{{ $proveedor->id }}"{{ $lotes->proveedors_id == $proveedor->id ? 'selected' : '' }}>
+                            {{ $proveedor->nombreProv }}
+                        </option>
+                        @endforeach
+                    </select>
+                </div> --}}
+
+                <div class="form-group">
                     <label for="password">Contraseña</label>
                     <input type="password" name="password" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="password_confirmation">Confirmar Contraseña</label>
                     <input type="password" name="password_confirmation" class="form-control" required>
-                </div> --}}
+                </div>
                 
 
-                <button type="submit" class="btn btn-sm btn-primary">Guardar cliente</button>
+                <button type="submit" class="btn btn-sm btn-primary">Guardar usuario</button>
             </form>
 
         </div>

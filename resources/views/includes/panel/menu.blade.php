@@ -1,11 +1,4 @@
-<li class="sidebar-item">
-  <a class="sidebar-link" href="" aria-expanded="false">
-    <span>
-      <i class="ti ti-mood-happy"></i>
-    </span>
-    <span class="hide-menu">REALIZAR COMPRA</span>
-  </a>
-</li>
+
 
 <ul id="sidebarnav">
     <li class="nav-small-cap">
@@ -24,7 +17,7 @@
     </li>
 
     <li class="sidebar-item">
-        <a class="sidebar-link" href="#" aria-expanded="false">
+        <a class="sidebar-link" href="{{ url('/gestionusuarios')}}" aria-expanded="false">
           <span>
             <i class="ti ti-mood-happy"></i>
           </span>

@@ -13,6 +13,9 @@ class ProductoController extends Controller
         $productos = Producto::with('categoria', 'laboratorio')->get();
         return view('products.index', compact('productos'));
     }
+    //Método para product catalogue
+    
+
 
     public function create(){
         $categorias = CategoriaProducto::all();
@@ -23,7 +26,7 @@ class ProductoController extends Controller
 
     public function sendData(Request $request)
     {
-        // Valida los datos del formulario
+        
         $request->validate([
         'nombreProd' => 'required|string|max:5',
         'precio' => 'required|numeric',
@@ -31,7 +34,6 @@ class ProductoController extends Controller
         'laboratorios_id' => 'required|exists:laboratorios,id',
     ]);
 
-    // Crea un nuevo producto con los datos del formulario
         $producto = new Producto();
         $producto->nombreProd = $request->input('nombreProd');
         $producto->precio = $request->input('precio');
@@ -39,7 +41,7 @@ class ProductoController extends Controller
         $producto->laboratorios_id = $request->input('laboratorios_id');
         $producto->save();
 
-    // Redirecciona a la vista de productos con un mensaje de éxito
+    
         return redirect('/productos')->with('success', 'Producto creado correctamente');
     }
 
@@ -68,7 +70,7 @@ class ProductoController extends Controller
         $producto->laboratorios_id = $request->input('laboratorios_id');
         $producto->save();
 
-    // Redirecciona a la vista de productos con un mensaje de éxito
+    
         return redirect('/productos')->with('success', 'Producto actualizado correctamente');
     }
 
@@ -76,6 +78,8 @@ class ProductoController extends Controller
         $producto->delete();
         return redirect('/productos')->with('success','Producto eliminado correctamente.');
     }
+
+
 
 }
 //Otra alternativa para el método destroy

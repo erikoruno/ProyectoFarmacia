@@ -77,6 +77,7 @@ class LaboratorioController extends Controller
         Laboratorio::findOrFail($id)->delete();
        
         return redirect('/laboratorios')->with('success', 'Laboratorio eliminado correctamente.');
+        
     }
 }
 

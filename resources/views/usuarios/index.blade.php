@@ -14,7 +14,7 @@
               <h3 class="mb-0">Datos personales</h3>
             </div>
             <div class="col text-right">
-              <a href="{{ url('/usuarios/create')}}" class="btn btn-sm btn-primary">Nuevo usuario</a>
+              <a href="{{ url('/usuarios/create')}}" class="btn btn-sm btn-primary">Nuevo cliente</a>
             </div>
           </div>
         </div>
@@ -44,33 +44,39 @@
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
-                <th scope="col">Código usuario</th>
-                <th scope="col">Nombre</th>                
+                {{-- <th scope="col">Código usuario</th> --}}
+                <th scope="col">Nombre</th>  
+                <th scope="col">Dirección</th>              
                 <th scope="col">Correo electrónico</th>
                 <th scope="col">Edad</th>
-                <th scope="col">Tipo usuario</th>
+                {{-- <th scope="col">Tipo usuario</th> --}}
+                <th>Acciones</th>
                 
               </tr>
             </thead>
             <tbody>
                 @foreach ($usuarios as $usuario)           
               <tr>
-                <td>
+                {{-- <td>
                   {{ $usuario->id }}
-                </td>
+                </td> --}}
                 <th scope="row">
                   {{$usuario->name}}
                 </th>
+                <td>
+                    {{ $usuario->direccion }}
+                  </td>
+                  
                 <td>
                     {{ $usuario->email }}
                   </td>
                   <td>
                     {{$usuario->edad}}
                   </td>
-                <td>
+                {{-- <td>
                     {{$usuario->typeUser->nombreTipo}}
-                  </td>
-                  
+                  </td> 
+                   --}}
                   
                 <td> 
                  
@@ -99,3 +105,7 @@
     <a href="{{ url('/especialidades/'.$especialidad->id.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
     <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
     </form>  --}}
+
+    {{-- iconos 
+    <i class="ni ni-check-bold"></i>
+    <i class="ni ni-fat-delete"></i> --}}

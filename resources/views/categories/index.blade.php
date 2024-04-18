@@ -62,7 +62,7 @@
                     @csrf
                     @method('DELETE')
                     <a href="{{ url('/categorias/'.$categoria->id.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
-                    <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                    {{-- <button type="submit" class="btn btn-sm btn-danger">Eliminar</button> --}}
                   </form>
                   
                  

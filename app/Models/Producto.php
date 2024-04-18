@@ -17,4 +17,9 @@ class Producto extends Model
     {
         return $this->belongsTo(Laboratorio::class, 'laboratorios_id');
     }
+
+    public function lote()
+    {
+        return $this->hasMany(Lote::class, 'productos_id'); // Suponiendo que un Producto tiene solo un Lote asociado
+    }
 }

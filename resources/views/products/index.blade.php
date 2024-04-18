@@ -49,6 +49,7 @@
                 <th scope="col">Precio</th>
                 <th scope="col">Categoria</th>
                 <th scope="col">Laboratorio</th>
+                <th>Acciones</th>
                 
               </tr>
             </thead>

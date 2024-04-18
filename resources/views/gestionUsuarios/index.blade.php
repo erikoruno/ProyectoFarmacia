@@ -11,10 +11,10 @@
         <div class="card-header border-0">
           <div class="row align-items-center">
             <div class="col">
-              <h3 class="mb-0">Proveedores</h3>
+              <h3 class="mb-0">Gestión usuarios</h3>
             </div>
             <div class="col text-right">
-              <a href="{{ url('/proveedores/create')}}" class="btn btn-sm btn-primary">Nuevo proveedor</a>
+              <a href="{{ url('/gestionusuarios/crear')}}" class="btn btn-sm btn-primary">Nuevo usuario</a>
             </div>
           </div>
         </div>
@@ -24,41 +24,66 @@
                   {{session('notification')}}
               </div>
             @endif --}}
+
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+             @endif
+
+            @if (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
+
+
         </div>
         <div class="table-responsive">
           <!-- Projects table -->
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
-                <th scope="col">Nombre proveedor</th>
-                <th scope="col">Teléfono</th>
-                <th scope="col">Correo</th>
-                <th scope="col">Dirección</th>
+                <th scope="col">Código usuario</th>
+                <th scope="col">Nombre</th>  
+                {{-- <th scope="col">Dirección</th>               --}}
+                <th scope="col">Correo electrónico</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Tipo de usuario</th>
                 <th>Acciones</th>
                 
               </tr>
             </thead>
             <tbody>
-                @foreach ($proveedores as $proveedor)           
+                @foreach ($gestionusuarios as $gestionusuario)           
               <tr>
-                <th scope="row">
-                  {{$proveedor->nombreProv}}
-                </th>
                 <td>
-                  {{$proveedor->telefono}}
+                  {{ $gestionusuario->id }}
                 </td>
+                <th scope="row">
+                  {{$gestionusuario->name}}
+                </th>
+                {{-- <td>
+                    {{ $gestionusuario->direccion }}
+                  </td> --}}
+                  
                 <td>
-                    {{$proveedor->correo}}
+                    {{ $gestionusuario->email }}
                   </td>
                   <td>
-                    {{$proveedor->direccion}}
+                    {{$gestionusuario->edad}}
                   </td>
                 <td>
+                    {{$gestionusuario->typeUser->nombreTipo}}
+                  </td> 
+                  
+                  
+                <td> 
                  
-                  <form action="{{ url('/proveedores/'.$proveedor->id)}}" method="POST">
+                  <form action="{{ url('/gestionusuarios/'.$gestionusuario->id)}}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <a href="{{ url('/proveedores/'.$proveedor->id.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
+                    <a href="{{ url('/gestionusuarios/'.$gestionusuario->id.'/editar')}}" class="btn btn-sm btn-primary">Editar</a> 
                     {{-- <button type="submit" class="btn btn-sm btn-danger">Eliminar</button> --}}
                   </form>
                   
@@ -66,7 +91,7 @@
                 </td>
                     
               </tr>
-              @endforeach
+              @endforeach 
             </tbody>
           </table>
         </div>
@@ -80,3 +105,7 @@
     <a href="{{ url('/especialidades/'.$especialidad->id.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
     <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
     </form>  --}}
+
+    {{-- iconos 
+    <i class="ni ni-check-bold"></i>
+    <i class="ni ni-fat-delete"></i> --}}

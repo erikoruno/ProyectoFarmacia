@@ -11,10 +11,10 @@
         <div class="card-header border-0">
           <div class="row align-items-center">
             <div class="col">
-              <h3 class="mb-0">Nuevo cliente</h3>
+              <h3 class="mb-0">Nuevo usuario</h3>
             </div>
             <div class="col text-right ">
-             <a href="{{ url('/usuarios')}}" class="btn btn-sm btn-success" >
+             <a href="{{ url('/gestionusuarios')}}" class="btn btn-sm btn-success" >
                 <i class="ti ti-arrow-left"></i>
                 Regresar</a>
             </div>
@@ -34,7 +34,7 @@
                 @endforeach --}}
 
              {{-- @endif --}}
-            <form role="form" action="{{ url('/usuarios')}}" method="POST">
+            <form role="form" action="{{ url('/gestionusuarios')}}" method="POST">
                 @csrf
 
                 <div class="form-group">
@@ -54,17 +54,29 @@
                     <label for="edad">Edad</label>
                     <input type="text"  name="edad" class="form-control" value="{{old('edad')}}"  required>
                 </div>
-                {{-- <div class="form-group">
+
+                <div class="form-group">
+                    <label for="type_users_id">Tipo de usuario</label>
+                    <select name="type_users_id" class="form-control">
+                        <option value="">Seleccionar tipo de usuario</option>
+                        @foreach($tipousuarios as $tipousuario)
+                            <option value="{{ $tipousuario->id }}">{{ $tipousuario->nombreTipo }}</option>
+                        @endforeach
+                        </select>
+                    
+                </div>
+
+                <div class="form-group">
                     <label for="password">Contraseña</label>
                     <input type="password" name="password" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="password_confirmation">Confirmar Contraseña</label>
                     <input type="password" name="password_confirmation" class="form-control" required>
-                </div> --}}
+                </div>
                 
 
-                <button type="submit" class="btn btn-sm btn-primary">Guardar cliente</button>
+                <button type="submit" class="btn btn-sm btn-primary">Guardar usuario</button>
             </form>
 
         </div>

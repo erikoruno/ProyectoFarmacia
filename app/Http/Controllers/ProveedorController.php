@@ -81,7 +81,7 @@ class ProveedorController extends Controller
         $proveedor->delete();
         return redirect('/proveedores');
 
-
+        
 
     }
 }

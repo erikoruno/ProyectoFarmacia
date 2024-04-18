@@ -11,7 +11,7 @@
         <div class="card-header border-0">
           <div class="row align-items-center">
             <div class="col">
-              <h3 class="mb-0">Nuevo cliente</h3>
+              <h3 class="mb-0">Editar cliente</h3>
             </div>
             <div class="col text-right ">
              <a href="{{ url('/usuarios')}}" class="btn btn-sm btn-success" >
@@ -34,25 +34,26 @@
                 @endforeach --}}
 
              {{-- @endif --}}
-            <form role="form" action="{{ url('/usuarios')}}" method="POST">
-                @csrf
 
+            <form role="form" action="{{ url('/usuarios/'.$usuario->id)}}" method="POST">
+                @csrf
+                @method('PUT')
                 <div class="form-group">
                     <label for="name">Nombre</label>
-                    <input type="text" id="name" name="name" class="form-control" value="{{old('name')}}"  required>
+                    <input type="text" id="name" name="name" class="form-control" value="{{old('name', $usuario->name)}}"  required>
                 </div>
                 <div class="form-group">
                     <label for="direccion">Dirección</label>
-                    <input type="text" id="direccion" name="direccion" class="form-control" value="{{old('direccion')}}"  required>
+                    <input type="text" id="direccion" name="direccion" class="form-control" value="{{old('direccion', $usuario->direccion)}}"  required>
                 </div>
 
                 <div class="form-group">
                     <label for="email">Correo electrónico</label>
-                    <input type="email"  name="email" class="form-control" value="{{old('email')}}"  required>
+                    <input type="email"  name="email" class="form-control" value="{{old('email', $usuario->email)}}"  required>
                 </div>
                 <div class="form-group">
                     <label for="edad">Edad</label>
-                    <input type="text"  name="edad" class="form-control" value="{{old('edad')}}"  required>
+                    <input type="text"  name="edad" class="form-control" value="{{old('edad', $usuario->edad)}}"  required>
                 </div>
                 {{-- <div class="form-group">
                     <label for="password">Contraseña</label>

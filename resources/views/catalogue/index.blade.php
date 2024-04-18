@@ -21,38 +21,47 @@
         
       </tr>
     </thead>
-    {{--<tbody>
+    <tbody>
         @foreach ($catalogos as $catalogo)           
       <tr>
         <td>
           {{ $catalogo->id }}
         </td>
-        {{-- <th scope="row">
+         <th scope="row">
           {{$catalogo->nombreProd}}
         </th> 
         <td>
           {{$catalogo->precio}}
         </td>
-          <td>
-            {{$catalogo->lote->stock}}
+         <td>
+            @foreach ($catalogo->lote as $lote)
+            {{ $lote->stock }}
+            @endforeach
           </td>
           <td>
-            {{$catalogo->lote->vencimiento}}
-          </td> 
+            @foreach ($catalogo->lote as $lote)
+              {{ $lote->vencimiento }}
+            @endforeach
+          </td>
         <td>  
+
+            <form action="{{ route('carrito.agregar', ['id' => $catalogo->id]) }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-sm btn-primary">Agregar a carrito</button>
+            </form>
          
-          {{-- <form action="{{ url('/catalogos/'.$producto->id)}}" method="POST">
+          {{-- <form action="{{ url('/catalogos/'.$catalogo->id)}}" method="POST">
             @csrf
             @method('DELETE')
-            <a href="{{ url('/catalogos/'.$producto->id.'/edit')}}" class="btn btn-sm btn-primary">Editar</a>
+            <a href="{{ url('/catalogos/'.$catalogo->id.'/edit')}}" class="btn btn-sm btn-primary">Agregar a carrito</a>
            
-          </form> 
+          </form>  --}}
           
          
         </td>
             
       </tr>
-      @endforeach --}}
+      @endforeach
     </tbody>
   </table>
 </div>
